@@ -1,0 +1,74 @@
+{% extends 'menu-collapsible.html' %}
+
+
+{% block head %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+{% endblock %}
+
+{% block content %}
+    
+    <section class="container-fluid">
+        <nav class="navbar">
+            <h2>Lista de Alertas generadas</h2>
+            <a href="{{ url_for('todo.catalertas')}}" class="btn btn-success">Tipos de alertas</a>
+            <a href="{{ url_for('todo.segalertas')}}" class="btn btn-success">Seguimiento de alertas</a>
+        </nav>
+        <div>
+            <h2>Regisros: {{ registros }}</h2>
+        </div>
+        <div class="table-responsive-small"> 
+            <table class="table table-striped table-sm"> 
+                <thead>
+                    <tr>
+                        <th class="col">Num. Referencia</th>
+                        <th class="col">Nombre del cliente</th>
+                        <th class="col">Fecha Alerta</th>
+                        <th class="col">Descripcion Alerta</th>
+                        <th class="col">Monto</th>
+                        <th class="col">Tipo Operación</th>
+                        <th class="col" colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for alerta in resultados %}
+                    <tr>
+                        <td>{{ alerta.ccodcta }} </td>
+                        <td>{{ alerta.cnomcli }}</td>
+                        <td>{{ alerta.dfecsis.strftime("%d/%m/%Y") }}</td>
+                        <td>
+                            <p>{{ alerta.nalert }}</p>
+                        </td>
+                        <td>{{ "{:,.2f}".format(alerta.monto) }}</td>
+                        <td>{{ alerta.ctippag }}</td>
+                        <td>
+                            <a href="" class="btn btn-info btn-sm">Ver detalles</a>
+                        </td>
+                        <td>
+                            <a href="{{ url_for('todo.create_alertas') }}" class="btn btn-success btn-sm">Crear Seg.</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            <div id="pagination" class="pagination"></div>
+    
+        </div>
+    
+    </section>
+
+{% endblock%}
+
+{% block scripts %}
+
+    <script>
+
+        const totalRegistros = { registros }
+        src="{{ url_for('static', filename='js/scripts.js') }}"
+
+    </script>
+
+{% endblock %}

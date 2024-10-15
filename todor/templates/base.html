@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <!-- 
+    <script src="../assets/js/color-modes.js"></script>
+    -->
+    <script src=" {{ url_for('static', filename='js/color-modes.js') }} "></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Rms-System</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <!-- 
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    -->
+    <link href="{{ url_for('static', filename='dist/css/bootstrap.min.css' )}}" rel="stylesheet">
+    
+    <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/carousel.css') }}" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<header data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://www.fosofamilia.gob.sv/" target="_blank"><i>FosoFamilia</i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://45.170.30.106/wwwsim/wflogin.aspx" target="_blank">SIM.NET</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://45.170.30.106/wwwpruebas/wfLogin.aspx" target="_blank">SIM-PRUEBAS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        
+        <form action="{{ url_for('auth.login') }}">
+          <button class="btn btn-outline-primary" type="submit">Rms-System</button>
+        </form>      
+        
+        <form class="d-flex" role="search">
+          <button class="btn btn-outline-success" type="submit">Acerca</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+
+        <!-- 
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      -->
+      <img src="{{ url_for('static', filename='img/banner1.png') }}" class="d-block w-100" alt="Descripción de la imagen">
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Abrete camino hacia el cambio.</h1>
+            <p class="opacity-75">El cambio de ser una variable cambiante, ahoara es una constante desafiante.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/banner5.png') }}" class="d-block w-100" alt="Descripción de la imagen">
+        <div class="container">
+          <div class="carousel-caption">
+            <h2>El trabajo te dignifica, siempre y cuando no te estanques.</h2>
+            <p>La diligencia premia a aquellos que la abrazan, más la negligencia ha empobrecido culturas enteras.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Leer más</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/banner2.png') }}" class="d-block w-100" alt="Descripción de la imagen">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Los retos tecnológicos, debes asumirlos.</h1>
+            <p>La tecnología avanza y avanza, es un cúmulo de invensiones imparables, por lo que debes subirte en ella y avanza tú también.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <!-- 
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg>
+      -->
+      <img src="{{ url_for('static', filename='img/Confidencialidad1.png') }}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="Descripción de la imagen">
+
+        <h2 class="fw-normal">Confidencialidad</h2>
+        <p>La confiabilidad informática se refiere a la capacidad de un sistema, dispositivo o software para funcionar de manera predecible y sin fallos durante un período de tiempo determinado.</p>
+        <p><a class="btn btn-secondary" href="#">Ver más información &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="{{ url_for('static', filename='img/circulo2.png') }}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="Descripción de la imagen">
+        <h2 class="fw-normal">Integridad</h2>
+        <p>Garantizar que los datos almacenados y transmitidos sean precisos y no hayan sido alterados de manera no autorizada
+        </p>
+        <p><a class="btn btn-secondary" href="#">Ver más información &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <img src="{{ url_for('static', filename='img/Disponibilidad3.png') }}" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="Descripción de la imagen">
+        <h2 class="fw-normal">Disponibilidad</h2>
+        <p>La capacidad del sistema para estar operativo y accesible cuando se necesita.</p>
+        <p><a class="btn btn-secondary" href="#">Ver más información &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">La innovación tecnolígica. <span class="text-body-secondary">Aprovéchala.</span></h2>
+        <p class="lead">En esta era de grandes avances tecnológicos en el desarrollo del Sofware,
+          no te puedes quedar atrás. Por lo que debes animarte a comprender un poco de las nuevas
+          tecnologías de vanguardia.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='img/imagen1.png') }}" width="500" height="500" alt="Descripción de la imagen">
+        <!-- 
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+        -->
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Un horizone por explorar. <span class="text-body-secondary">Te dejará boquiabierto.</span></h2>
+        <p class="lead">Otras características integradas? Seguro!. Podrás experimentar el poder de esta <span class="text-body-secondary"></span>Herramienta.</span></p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='img/imagen2.png') }}" width="500" height="500" alt="Descripción de la imagen">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">Por último hablemos de Conexion de datos. <span class="text-body-secondary">Conexión.</span></h2>
+        <p class="lead">El poder de las conexiones de datos hoy en día es todo una maravilla. Por lo que establecer una buena conexion
+          es de uma importancia en los sistemas <span class="text-body-secondary">CORE.</span> </p>
+      </div>
+      <div class="col-md-5">
+        <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="{{ url_for('static', filename='img/imagen3.png') }}" width="500" height="500" alt="Descripción de la imagen">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2024 Rms-System. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
+</main>
+  <script src="{{ url_for('static', filename='dist/js/bootstrap.bundle.min.js') }}"></script>
+  
+</body>
+</html>

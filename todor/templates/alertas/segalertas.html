@@ -1,0 +1,84 @@
+{% extends 'menu-collapsible.html' %}
+
+{% block head %}
+
+<style>
+    /*
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    */
+    .contenedor {
+        width: 100%;
+        height: 80%;
+        border: 2px solid #ccc;
+        padding: 10px;
+        background-color: #fff;
+        overflow: auto;
+        /* Habilita las barras de desplazamiento */
+        box-sizing: border-box;
+    }
+
+    .contenido {
+        width: 50%;
+        height: 50%;
+        background-color: #e0e0e0;
+    }
+</style>
+
+{% endblock%}
+
+{% block content %}
+
+<div class="contenedor">
+    <div class="contenido">
+
+        <section class="container-fluid">
+            <nav class="navbar">
+                <h1>{% block title %}Lista de Alertas{%endblock%}</h1>
+                <a href="{{ url_for('todo.create_alertas')}}" class="btn btn-success">Crear Seguimiento</a>
+            </nav>
+            <table class="table table-responsive">
+
+                <thead>
+                    <tr>
+                        <th class="col">Id</th>
+                        <th class="col">Descripcion Alerta</th>
+                        <th class="col">Fecha</th>
+                        <th class="col">Comentario</th>
+                        <th class="col">Tipo</th>
+                        <th class="col" colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for segalerta in segalertas %}
+                    <tr>
+                        <td>{{ segalerta.idAlerta }}</td>
+                        <td>{{ segalerta.desAlerta }}</td>
+                        <td>{{ segalerta.fechaAlerta.strftime("%d/%m/%Y") }}</td>
+                        <td>
+                            <p>{{ segalerta.comentario }}</p>
+                        </td>
+                        <td>{{ segalerta.idTipoAlerta }}</td>
+                        <td>
+                            <a href="" class="btn btn-info btn-sm">Seguimiento</a>
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-success btn-sm">Ver Infor.</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </section>
+    </div>
+</div>
+{% endblock%}

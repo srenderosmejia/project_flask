@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar/Editar Alerta</title>
+</head>
+<body>
+    <h1>{{ 'Editar' if form.desAlerta.data else 'Agregar' }} Alerta</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.desAlerta.label }}<br>
+            {{ form.desAlerta(size=32) }}<br>
+            {{ form.fechaAlerta.label }}<br>
+            {{ form.fechaAlerta() }}<br>
+            {{ form.Comentario.label }}<br>
+            {{ form.Comentario() }}<br>
+            {{ form.idTipoAlerta.label }}<br>
+            {{ form.idTipoAlerta(size=32) }}<br>
+            {{ form.usuarioCreacion.label }}<br>
+            {{ form.usuarioCreacion(size=32) }}<br>
+            {{ form.fechaActualizacion.label }}<br>
+            {{ form.fechaActualizacion() }}<br>
+            {{ form.submit() }}
+        </p>
+    </form>
+    <a href="{{ url_for('alertas') }}">Volver a la Lista de Alertas</a>
+</body>
+</html>
